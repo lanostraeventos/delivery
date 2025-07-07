@@ -46,3 +46,13 @@ body {
 .google-map {
     border: 0;
 }
+
+/* Utilitário para esconder a barra de rolagem, mantendo a funcionalidade */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;  /* Firefox */
+}
