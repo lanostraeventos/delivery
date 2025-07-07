@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nostra | Pizzaria Artesanal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white fixed w-full z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 text-2xl font-bold">
+                    <img src="/img/logo-light.png" alt="logo" class="h-24 w-auto rounded">
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-gray-600 transition">Início</a>
+                    <a href="#cardapio" class="hover:text-gray-600 transition">Cardápio</a>
+                    <a href="#sobre" class="hover:text-gray-600 transition">Sobre Nós</a>
+                    <a href="#contato" class="hover:text-gray-600 transition">Contato</a>
+                </nav>
+                
+                <button class="md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">AUTÊNTICA PIZZA ITALIANA</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Ingredientes artesanais selecionados em um ambiente sofisticado</p>
+            <a href="#cardapio" class="bg-white text-black px-8 py-3 inline-block font-medium hover:bg-gray-200 transition">VER CARDÁPIO</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="cardapio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">NOSSO CARDÁPIO</h2>
+            
+            <div class="flex justify-center mb-12">
+                <div class="flex space-x-1 border-b">
+                    <button onclick="filterMenu('todas')" class="menu-tab active px-4 py-2">TODAS</button>
+                    <button onclick="filterMenu('tradicionais')" class="menu-tab px-4 py-2">TRADICIONAIS</button>
+                    <button onclick="filterMenu('premium')" class="menu-tab px-4 py-2">PREMIUM</button>
+                    <button onclick="filterMenu('doces')" class="menu-tab px-4 py-2">DOCES</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pizza Card 1 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="tradicionais">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b7204ed4-27ee-458f-8567-e6eb587ada62.png" alt="Pizza Margherita tradicional com molho de tomate fresco, mussarela de búfala e folhas de manjericão" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Margherita</h3>
+                    <p class="text-gray-600 mb-4">Molho de tomate, mussarela de búfala, manjericão e azeite.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 42,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+                
+                <!-- Pizza Card 2 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="tradicionais">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1a674ea-6ee4-4b68-989a-cd53d2a404ed.png" alt="Pizza Pepperoni com generosas fatias de pepperoni crocante sobre queijo derretido e molho de tomate" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pepperoni</h3>
+                    <p class="text-gray-600 mb-4">Molho de tomate, mussarela, pepperoni e orégano.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 45,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+                
+                <!-- Pizza Card 3 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="premium">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/003503f8-2483-4951-ad61-0c836e852912.png" alt="Pizza Prosciutto e Rúcula com fatias finas de presunto cru, queijo parmesão e folhas frescas de rúcula" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Prosciutto e Rúcula</h3>
+                    <p class="text-gray-600 mb-4">Mussarela, presunto cru, rúcula e parmesão.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 55,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+                
+                <!-- Pizza Card 4 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="premium">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3a18a3d-4cf4-478d-a899-bfe36abe61bb.png" alt="Pizza Quatro Queijos com camadas derretidas de mussarela, gorgonzola, provolone e parmesão" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Quatro Queijos</h3>
+                    <p class="text-gray-600 mb-4">Mussarela, gorgonzola, provolone e parmesão.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 59,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+                
+                <!-- Pizza Card 5 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="doces">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d4d11be-1bf7-4f1b-914f-9830ca34eb27.png" alt="Pizza Doce de Nutella com creme de avelã generosamente espalhado e morangos frescos fatiados" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Nutella com Morango</h3>
+                    <p class="text-gray-600 mb-4">Nutella, morangos frescos e açúcar de confeiteiro.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 49,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+                
+                <!-- Pizza Card 6 -->
+                <div class="pizza-card bg-white p-6 rounded-lg shadow-md" data-category="doces">
+                    <div class="mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5fb34e8-fde3-423f-b93b-3b9172c45a7b.png" alt="Pizza Doce de Banana Canela com fatias de banana caramelizada e polvilhada com canela em pó" class="w-full h-48 object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Banana com Canela</h3>
+                    <p class="text-gray-600 mb-4">Banana, canela, leite condensado e açúcar.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">R$ 39,90</span>
+                        <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">PEDIR AGORA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="/img/chefe.png" alt="Chef profissional preparando pizza em forno a lenha em cozinha industrial moderna" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">NOSSA HISTÓRIA</h2>
+                    <p class="mb-4 text-gray-600">Fundada em 2010, a La Nostra nasceu da paixão pela autêntica pizza italiana combinada com um toque contemporâneo.</p>
+                    <p class="mb-4 text-gray-600">Nossos chefs são treinados na Itália e selecionamos cuidadosamente os melhores ingredientes importados e locais.</p>
+                    <p class="mb-6 text-gray-600">Acreditamos que a simplicidade é a sofisticação - por isso mantemos nossos sabores puros e nossas receitas tradicionais.</p>
+                    <a href="#contato" class="bg-black text-white px-8 py-3 inline-block font-medium hover:bg-gray-800 transition">VISITE-NOS</a>
+                </div>
+            </div>
+            
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">🍕</div>
+                    <h3 class="text-xl font-bold mb-2">Ingredientes Premium</h3>
+                    <p class="text-gray-600">Selecionamos os melhores ingredientes diretamente da Itália e produtores locais artesanais.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">🔥</div>
+                    <h3 class="text-xl font-bold mb-2">Forno a Lenha</h3>
+                    <p class="text-gray-600">Nossas pizzas são assadas em forno a lenha tradicional, garantindo sabor e textura incomparáveis.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">⭐</div>
+                    <h3 class="text-xl font-bold mb-2">Qualidade Garantida</h3>
+                    <p class="text-gray-600">Certificados pela Associação Pizzaioli Napoletani pela autenticidade de nossas receitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 bg-black text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">FALE CONOSCO</h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-4">NOSSO ENDEREÇO</h3>
+                    <p class="mb-6">Rua das Pizzas, 123<br>
+                    Centro, Fortaleza - CE<br>
+                    CEP: 01000-000</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">HORÁRIO DE FUNCIONAMENTO</h3>
+                    <p class="mb-6">Segunda a Quinta: 18h - 23h<br>
+                    Sexta e Sábado: 18h - 00h<br>
+                    Domingo: 18h - 22h</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">TELEFONE</h3>
+                    <p class="mb-6">(11) 9999-9999</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">E-MAIL</h3>
+                    <p>contato@lanostra.com.br</p>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="mb-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754268274442!2d-46.6534268!3d-23.5656797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59b938e52c1e4f0!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1624295059679!5m2!1spt-BR!2sbr" width="100%" height="300" class="google-map" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                    <form class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label for="nome" class="block mb-2">Nome</label>
+                            <input type="text" id="nome" class="w-full p-3 bg-gray-900 text-white rounded">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2">E-mail</label>
+                            <input type="email" id="email" class="w-full p-3 bg-gray-900 text-white rounded">
+                        </div>
+                        
+                        <div>
+                            <label for="mensagem" class="block mb-2">Mensagem</label>
+                            <textarea id="mensagem" rows="4" class="w-full p-3 bg-gray-900 text-white rounded"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-white text-black px-6 py-3 font-medium hover:bg-gray-200 transition">ENVIAR MENSAGEM</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Order Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="floating-button bg-black text-white px-6 py-3 rounded-full shadow-lg hover:bg-gray-800 transition flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+            </svg>
+            FAZER PEDIDO
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-black py-12 border-t">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">La Nostra</h3>
+                    <p class="text-gray-600">A autêntica experiência italiana em pizzas artesanais.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">LINKS RÁPIDOS</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-600 hover:text-black transition">Início</a></li>
+                        <li><a href="#cardapio" class="text-gray-600 hover:text-black transition">Cardápio</a></li>
+                        <li><a href="#sobre" class="text-gray-600 hover:text-black transition">Sobre Nós</a></li>
+                        <li><a href="#contato" class="text-gray-600 hover:text-black transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">REDES SOCIAIS</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-black transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">NEWSLETTER</h3>
+                    <p class="text-gray-600 mb-4">Assine para receber nossas promoções.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu e-mail" class="p-2 text-gray-600 rounded-l border-y border-l border-gray-300 w-full">
+                        <button type="submit" class="bg-black text-white px-4 rounded-r hover:bg-gray-800 transition">✓</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-200 text-center text-gray-600">
+                <p>© 2023 La Nostra Pizzaria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Filter Function
+        function filterMenu(category) {
+            const tabs = document.querySelectorAll('.menu-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent.toLowerCase().includes(category.toLowerCase())) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            const cards = document.querySelectorAll('.pizza-card');
+            cards.forEach(card => {
+                const isVisible = category === 'todas' || card.dataset.category === category;
+                if (isVisible) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Mobile Menu Toggle (to be implemented)
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            console.log('Mobile menu clicked');
+            // Implementar a lógica do menu mobile aqui
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Floating button click handler
+        document.querySelector('.floating-button').addEventListener('click', function() {
+            alert('Pedido adicionado ao carrinho!');
+        });
+    </script>
+</body>
+</html>
