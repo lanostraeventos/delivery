@@ -10,10 +10,10 @@
 <body>
     <!-- Header -->
     <header class="bg-white fixed w-full z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-6 py-2">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-3 text-2xl font-bold">
-                    <img src="./img/logo-light.png" alt="logo" class="h-24 w-auto rounded">
+                    <img src="/img/logo-light.png" alt="logo" class="h-20 w-auto rounded">
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
@@ -23,12 +23,22 @@
                     <a href="#contato" class="hover:text-gray-600 transition">Contato</a>
                 </nav>
                 
-                <button class="md:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="mobile-menu-button" class="md:hidden">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
+            <!-- Mobile Menu -->
+            <nav id="mobile-menu" class="hidden md:hidden bg-white py-4">
+                <a href="#inicio" class="block text-center py-2 text-gray-700 hover:bg-gray-100">Início</a>
+                <a href="#cardapio" class="block text-center py-2 text-gray-700 hover:bg-gray-100">Cardápio</a>
+                <a href="#sobre" class="block text-center py-2 text-gray-700 hover:bg-gray-100">Sobre Nós</a>
+                <a href="#contato" class="block text-center py-2 text-gray-700 hover:bg-gray-100">Contato</a>
+            </nav>
         </div>
     </header>
 
@@ -142,7 +152,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img src="./img/chefe.png" alt="Chef profissional preparando pizza em forno a lenha em cozinha industrial moderna" class="rounded-lg shadow-xl">
+                    <img src="/img/chefe.png" alt="Chef profissional preparando pizza em forno a lenha em cozinha industrial moderna" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold mb-6">NOSSA HISTÓRIA</h2>
@@ -315,21 +325,35 @@
             });
         }
         
-        // Mobile Menu Toggle (to be implemented)
-        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
-            console.log('Mobile menu clicked');
-            // Implementar a lógica do menu mobile aqui
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-open-icon');
+        const closeIcon = document.getElementById('menu-close-icon');
+
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
         });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 100,
+                        top: target.offsetTop - 96, // Adjusted for new header height
                         behavior: 'smooth'
                     });
                 }
